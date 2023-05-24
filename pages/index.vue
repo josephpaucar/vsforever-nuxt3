@@ -1,5 +1,35 @@
 <script setup>
 const carouselSlides = ref(["img1.jpg", "img2.jpg", "img3.jpg"]);
+const categories = ref([
+  {
+    img: "bebidas.png",
+    title: "Bebidas de Aloe",
+  },
+  {
+    img: "colmena.png",
+    title: "Colmena",
+  },
+  {
+    img: "belleza.png",
+    title: "Belleza",
+  },
+  {
+    img: "cuidado_personal.png",
+    title: "Cuidado Personal",
+  },
+  {
+    img: "cuidado_piel.png",
+    title: "Cuidado de la piel",
+  },
+  {
+    img: "nutricion.png",
+    title: "Nutrición",
+  },
+  {
+    img: "suplementos.png",
+    title: "Suplementos",
+  },
+]);
 </script>
 <template>
   <div class="container mx-auto px-3">
@@ -25,38 +55,51 @@ const carouselSlides = ref(["img1.jpg", "img2.jpg", "img3.jpg"]);
       </CarouselSlide>
     </CarouselBase>
 
-    <section>
-      <div>
-        <h2>Live out your life</h2>
-        <p>Welcome to learts Store</p>
-        <p>
+    <section class="introduction">
+      <div class="my-20">
+        <h2>Vive una vida plena</h2>
+        <p
+          class="text-center font-marcellus text-lg uppercase text-dark-green font-medium mb-10"
+        >
+          Bienvenidos a VidaSana Forever
+        </p>
+        <p
+          class="text-center font-didact text-base text-gray-dark tracking-wide"
+        >
           Learts is an online shop of two passionate craftsmen where they sell
           handicrafts and arts’ works in the US.
         </p>
-        <p>
+        <p
+          class="text-center font-didact text-base text-gray-dark tracking-wide"
+        >
           We provide high-end unique vases, wall arts, home accessories, and
           furniture pieces.
         </p>
       </div>
-      <div class="categories">
-        <div class="category-card">
+      <div
+        class="my-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-8 gap-y-12 justify-center"
+      >
+        <div
+          v-for="(category, index) in categories"
+          class="category-card"
+          :key="index"
+        >
           <nuxt-link to="/">
             <div class="category__image">
               <div class="wrapper">
-                <img src="/img1.jpg" alt="category-1" />
+                <img :src="category.img" :alt="category.title" />
               </div>
             </div>
             <div class="category__title">
-              <p>Title</p>
+              <p>{{ category.title }}</p>
             </div>
           </nuxt-link>
         </div>
       </div>
     </section>
+
+    <div class="divider"></div>
   </div>
-  <div class="text-5xl font-caveat">Caveat font</div>
-  <div class="text-5xl font-didact">Didact Gothic font</div>
-  <div class="text-5xl font-marcellus">Marcellus font</div>
 </template>
 <style lang="scss" scoped>
 .full-width {
@@ -69,8 +112,11 @@ const carouselSlides = ref(["img1.jpg", "img2.jpg", "img3.jpg"]);
     @apply w-full h-full max-h-[865px] min-h-[585px] object-cover aspect-video;
   }
 }
+.divider {
+  @apply h-[1px] bg-slate-400 w-11/12 mx-auto;
+}
 .category-card {
-  @apply h-[270px] w-[270px] relative;
+  @apply w-full max-w-[330px] sm:max-w-full relative mx-auto;
 
   &:hover img {
     @apply scale-110 transition-all duration-700 ease-in;
@@ -83,7 +129,7 @@ const carouselSlides = ref(["img1.jpg", "img2.jpg", "img3.jpg"]);
 
     .wrapper {
       img {
-        @apply h-[270px] w-[270px] object-cover transition-all duration-700 ease-in;
+        @apply w-full aspect-square object-cover transition-all duration-700 ease-in;
       }
     }
     .wrapper::after {
@@ -96,10 +142,27 @@ const carouselSlides = ref(["img1.jpg", "img2.jpg", "img3.jpg"]);
   }
 
   .category__title {
-    @apply absolute z-10 bottom-[-20px] left-0 right-0 flex justify-center;
+    @apply w-10/12 absolute z-10 bottom-[-20px] left-0 right-0 flex justify-center mx-auto;
 
     p {
-      @apply bg-red-100 px-5 py-3;
+      @apply font-marcellus bg-red-100 px-5 py-3 w-full text-center;
+    }
+  }
+}
+
+.introduction {
+  @apply my-20;
+  h2 {
+    @apply text-center font-windsong text-6xl relative w-fit mx-auto py-8;
+
+    &::after {
+      @apply absolute right-[-90px] top-[25px] hidden md:block;
+      content: url("~/assets/images/leaf.svg");
+    }
+
+    &::before {
+      @apply absolute left-[-80px] top-[25px] hidden md:block;
+      content: url("~/assets/images/leaf-rotated.svg");
     }
   }
 }

@@ -14,6 +14,9 @@ export default defineNuxtConfig({
       },
       "Didact Gothic": true,
       Marcellus: true,
+      WindSong: {
+        wght: [400, 500],
+      },
     },
   },
 });

@@ -3,6 +3,7 @@ module.exports = {
   theme: {
     fontFamily: {
       caveat: ["Caveat"],
+      windsong: ["WindSong"],
       didact: ["Didact Gothic"],
       marcellus: ["Marcellus"],
     },
@@ -13,6 +14,7 @@ module.exports = {
         "gray-dark": "#273444",
         gray: "#8492a6",
         "gray-light": "#d3dce6",
+        "dark-green": "#848A78",
       },
       spacing: {
         "8xl": "96rem",
