@@ -4,30 +4,37 @@ const categories = ref([
   {
     img: "bebidas.png",
     title: "Bebidas de Aloe",
+    color: "#FFF9E6",
   },
   {
     img: "colmena.png",
     title: "Colmena",
+    color: "#E9F3E7",
   },
   {
     img: "belleza.png",
     title: "Belleza",
+    color: "#F6EAEB",
   },
   {
     img: "cuidado_personal.png",
     title: "Cuidado Personal",
+    color: "#E0F1FB",
   },
   {
     img: "cuidado_piel.png",
     title: "Cuidado de la piel",
+    color: "#E9F3E7",
   },
   {
     img: "nutricion.png",
     title: "Nutrición",
+    color: "#E0F1FB",
   },
   {
     img: "suplementos.png",
     title: "Suplementos",
+    color: "#FFF9E6",
   },
 ]);
 </script>
@@ -77,7 +84,7 @@ const categories = ref([
         </p>
       </div>
       <div
-        class="my-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-8 gap-y-12 justify-center"
+        class="my-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-8 gap-y-12 justify-center"
       >
         <div
           v-for="(category, index) in categories"
@@ -91,7 +98,9 @@ const categories = ref([
               </div>
             </div>
             <div class="category__title">
-              <p>{{ category.title }}</p>
+              <p :style="{ backgroundColor: category.color }">
+                {{ category.title }}
+              </p>
             </div>
           </nuxt-link>
         </div>
@@ -145,7 +154,7 @@ const categories = ref([
     @apply w-10/12 absolute z-10 bottom-[-20px] left-0 right-0 flex justify-center mx-auto;
 
     p {
-      @apply font-marcellus bg-red-100 px-5 py-3 w-full text-center;
+      @apply font-marcellus px-5 py-3 w-full text-center;
     }
   }
 }

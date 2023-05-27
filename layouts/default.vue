@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full fixed z-20 bg-white">
+  <header class="w-full fixed z-30 bg-white">
     <AppHeader />
   </header>
   <main class="pt-[80px] md:pt-[100px]">

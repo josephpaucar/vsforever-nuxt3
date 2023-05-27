@@ -7,7 +7,9 @@ const activeMenu = ref(false);
     class="container h-[80px] md:h-[100px] px-4 mx-auto flex justify-between items-center"
   >
     <div class="logo">
-      <nuxt-link to="/" class="font-didact text-xl"> VS Forever </nuxt-link>
+      <nuxt-link to="/" class="font-didact text-xl">
+        <img src="~/assets/images/logo.png" alt="Logo VidaSana Forever" />
+      </nuxt-link>
     </div>
     <nav class="hidden md:block">
       <nuxt-link to="/" class="link mr-4">Home</nuxt-link>
@@ -117,6 +119,11 @@ const activeMenu = ref(false);
 </template>
 
 <style lang="scss" scoped>
+.logo {
+  img {
+    @apply max-h-[55px] md:max-h-[70px];
+  }
+}
 .actions {
   @apply flex flex-row gap-6 items-center;
 
